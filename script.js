@@ -109,7 +109,7 @@ const initApp = () => {
             rating: 5, 
             text: {
                 en: "I can tell from her professional approach that she knows what she is doing. I can confidently recommend her as one of the best dermatologists I have encountered.",
-                hi: "उनके पेशेवर दृष्टिकोण से मैं कह सकता हूँ সর্বশেষ मुझे मिले सबसे अच्छे त्वचा विशेषज्ञों में से एक के रूप में आत्मविश्वास के साथ सुझा सकता हूँ।"
+                hi: "उनके पेशेवर दृष्टिकोण से मैं कह सकता हूँ कि उन्हें अपने काम की अच्छी समझ है। मैं उन्हें अब तक मिले सबसे अच्छे त्वचा विशेषज्ञों में से एक के रूप में आत्मविश्वास के साथ सुझा सकता हूँ।"
             }
         },
         { 

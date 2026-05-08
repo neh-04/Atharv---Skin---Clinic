@@ -195,19 +195,26 @@ ul {
     justify-content: space-between;
     align-items: center;
     height: auto;
-    min-height: 90px;
+    min-height: 70px;
     padding: 10px 0;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .logo {
     display: flex;
     align-items: center;
     font-family: 'Crimson Text', serif;
-    font-size: 26px; /* Reduced from 32px to fit full name */
+    font-size: 16px;
     font-weight: 600;
     color: var(--primary);
-    white-space: nowrap;
+    white-space: normal;
+    flex: 1;
+}
+@media (min-width: 768px) {
+    .logo {
+        font-size: 24px;
+        white-space: nowrap;
+    }
 }
 
 .logo-text {
@@ -215,13 +222,20 @@ ul {
 }
 
 .nav-logo-img {
-    height: 70px;
-    width: 70px;
+    height: 45px;
+    width: 45px;
     padding: 2px;
     object-fit: contain;
     border-radius: 50%;
-    margin-right: 12px;
+    margin-right: 8px;
     background: transparent;
+}
+@media (min-width: 768px) {
+    .nav-logo-img {
+        height: 65px;
+        width: 65px;
+        margin-right: 12px;
+    }
 }
 
 .logo-accent {
@@ -352,6 +366,7 @@ ul {
     height: 2px;
     background-color: var(--accent);
     margin: 30px auto;
+    margin-bottom: 25px;
 }
 
 .menu-heading {
@@ -799,13 +814,24 @@ ul {
 
 /* Reviews Section */
 .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     gap: 25px;
     margin-top: 40px;
+    padding-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+}
+
+.reviews-grid::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari/Edge */
 }
 
 .review-card {
+    flex: 0 0 85%;
+    max-width: 400px;
+    scroll-snap-align: center;
     background: var(--white);
     padding: 35px;
     border-radius: var(--radius-md);
@@ -816,9 +842,19 @@ ul {
     flex-direction: column;
     gap: 15px;
 }
+@media (min-width: 768px) {
+    .review-card {
+        flex: 0 0 45%;
+    }
+}
+@media (min-width: 992px) {
+    .review-card {
+        flex: 0 0 30%;
+    }
+}
 
 .review-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
     border-top-color: var(--primary);
 }
@@ -904,13 +940,6 @@ ul {
 .stars {
     margin-bottom: 15px;
     letter-spacing: 2px;
-}
-
-.review-text {
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--text-dark);
-    line-height: 1.6;
 }
 
 /* Booking & Contact */
@@ -1101,9 +1130,11 @@ ul {
 
 /* Footer */
 .footer {
-    background-color: #1e1c1b; /* Softer dark tone */
+    background-color: #1a1816;
     color: var(--white);
-    padding: 100px 0 30px;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
 }
 
 .footer-content {
@@ -1182,14 +1213,6 @@ ul {
     color: var(--accent);
 }
 
-.footer {
-    background-color: #1a1816;
-    color: var(--white);
-    position: relative;
-    overflow: hidden;
-    padding-top: 80px;
-}
-
 .footer::before {
     content: '';
     position: absolute;
@@ -1207,16 +1230,6 @@ ul {
 @keyframes atmospheric-glow {
     0% { opacity: 0.3; transform: translateX(-50%) scale(0.9); }
     100% { opacity: 0.8; transform: translateX(-40%) scale(1.1); }
-}
-
-.footer-flourish {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 20px;
 }
 
 .footer-flourish {
@@ -1343,8 +1356,6 @@ ul {
 #scale-wrapper {
     position: relative;
 }
-
-/* Responsive Design Enabled */
 
 /* Language Switcher */
 .lang-switcher {

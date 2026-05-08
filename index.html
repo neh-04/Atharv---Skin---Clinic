@@ -2,30 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200, initial-scale=0.3, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Atharv Skin Clinic & Laser Centre - Dr. Anuja Bharti | Dermatologist in Muzaffarpur</title>
     <meta name="description" content="Atharv Skin Clinic & Laser Centre - Advanced Skin, Hair & Cosmetic Care in Muzaffarpur by Dr. Anuja Bharti, Gold Medalist Dermatologist.">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=1.2">
-    <style>
-        /* Force body to be exactly 1200px for the scaler to work */
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background-color: #fdfaf7;
-        }
-        #scale-wrapper {
-            width: 1200px;
-            transform-origin: top left;
-            position: relative;
-            background-color: #fdfaf7;
-        }
-    </style>
+
 </head>
 <body>
-    <div id="scale-wrapper">
+    <div class="app-wrapper">
         <!-- Navigation -->
         <header class="navbar">
             <div class="container nav-content">
@@ -45,9 +31,28 @@
                     <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
                     <button class="lang-btn" onclick="setLanguage('hi')">हिंदी</button>
                 </div>
-                <a href="#booking" class="btn primary-btn btn-sm nav-btn" data-en="Book Appointment" data-hi="अपॉइंटमेंट बुक करें">Book Appointment</a>
+                <a href="#booking" class="btn btn-red btn-sm nav-btn" data-en="Book Appointment" data-hi="अपॉइंटमेंट बुक करें">Book Appointment</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
             </div>
         </header>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenu">
+            <button class="close-btn" id="closeMenuBtn">&times;</button>
+            <div class="mobile-menu-content">
+                <div class="menu-branding">
+                    <div class="menu-logo">Atharv</div>
+                    <p class="menu-subtext" data-en="Skin Clinic & Laser Centre" data-hi="स्किन क्लिनिक और लेजर सेंटर">Skin Clinic & Laser Centre</p>
+                </div>
+                <nav class="mobile-nav-links">
+                    <a href="#home" data-en="Home" data-hi="होम">Home</a>
+                    <a href="#services" data-en="Services" data-hi="सेवाएं">Services</a>
+                    <a href="#about" data-en="Doctor" data-hi="डॉक्टर">Doctor</a>
+                    <a href="#contact" data-en="Contact" data-hi="संपर्क">Contact</a>
+                    <a href="#booking" class="btn btn-red btn-full" data-en="Book Appointment" data-hi="अपॉइंटमेंट बुक करें">Book Appointment</a>
+                </nav>
+            </div>
+        </div>
 
         <!-- Hero Section -->
         <section id="home" class="hero">
@@ -58,8 +63,8 @@
                     <h1 data-en="Advanced Skin, Hair & Cosmetic Care in Muzaffarpur" data-hi="मुजफ्फरपुर में त्वचा, बाल और कॉस्मेटिक की आधुनिक चिकित्सा">Advanced Skin, Hair & Cosmetic Care in Muzaffarpur</h1>
                     <p class="hero-subtext" data-en="Providing expert, compassionate dermatological treatments for all your skin, hair, and cosmetic needs." data-hi="आपकी त्वचा, बाल और कॉस्मेटिक संबंधी सभी जरूरतों के लिए विशेषज्ञ और सहानुभूतिपूर्ण उपचार प्रदान करना।">Providing expert, compassionate dermatological treatments for all your skin, hair, and cosmetic needs.</p>
                     <div class="hero-buttons">
-                        <a href="#booking" class="btn primary-btn" data-en="Book Appointment" data-hi="अपॉइंटमेंट बुक करें">Book Appointment</a>
-                        <a href="tel:+918539003914" class="btn outline-btn" data-en="Call Now" data-hi="अभी कॉल करें">Call Now</a>
+                        <a href="#booking" class="btn btn-red" data-en="Book Appointment" data-hi="अपॉइंटमेंट बुक करें">Book Appointment</a>
+                        <a href="tel:+918539003914" class="btn outline-red-btn" data-en="Call Now" data-hi="अभी कॉल करें">Call Now</a>
                     </div>
                 </div>
                 <div class="hero-image-wrapper">
@@ -119,7 +124,7 @@
             <div class="container fade-in">
                 <div class="about-wrapper">
                     <div class="doctor-image">
-                        <img src="./doctor.png" alt="Dr. Anuja Bharti" id="docProfilePic">
+                        <img src="doctor.jpg" alt="Dr. Anuja Bharti" id="docProfilePic">
                         <div class="decorative-blob"></div>
                     </div>
                     <div class="doctor-info">
@@ -148,58 +153,29 @@
                 </div>
                 
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card" style="display: flex; flex-direction: column;">
                         <div class="card-icon">🧴</div>
                         <h3 data-en="Skin Treatments" data-hi="त्वचा के उपचार">Skin Treatments</h3>
-                        <div class="card-list-wrapper">
-                            <ul>
-                                <li data-en="Acne & Black Spots" data-hi="मुँहासे और काले धब्बे">Acne & Black Spots</li>
-                                <li data-en="Psoriasis & White Patches" data-hi="सोरायसिस और सफेद दाग">Psoriasis & White Patches</li>
-                                <li data-en="Eczema, Allergy & Hives" data-hi="एक्जिमा, एलर्जी और पित्ती">Eczema, Allergy & Hives</li>
-                                <li data-en="Ringworm & Fungal Infection" data-hi="दाद और फंगल संक्रमण">Ringworm & Fungal Infection</li>
-                                <li data-en="Warts, Moles & Freckles" data-hi="मस्से, तिल और झाइयां">Warts, Moles & Freckles</li>
-                                <li data-en="Chickenpox Marks" data-hi="चिकनपॉक्स के निशान">Chickenpox Marks</li>
-                                <li data-en="Itching, Measles & Leprosy" data-hi="खुजली, खसरा और कुष्ठ रोग">Itching, Measles & Leprosy</li>
-                            </ul>
-                        </div>
+                        <p style="flex-grow: 1; font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px; line-height: 1.6;" data-en="Expert diagnosis and treatment for a wide range of skin conditions including acne, psoriasis, and eczema. We use evidence-based therapies to restore your skin's health and natural glow." data-hi="मुँहासे, सोरायसिस और एक्जिमा सहित त्वचा की विभिन्न स्थितियों के लिए विशेषज्ञ निदान और उपचार। हम आपकी त्वचा के स्वास्थ्य को बहाल करने के लिए साक्ष्य-आधारित उपचारों का उपयोग करते हैं।">Expert diagnosis and treatment for a wide range of skin conditions including acne, psoriasis, and eczema. We use evidence-based therapies to restore your skin's health and natural glow.</p>
+                        <a href="treatment-details.html#skin" class="btn outline-btn btn-sm" style="align-self: flex-start; text-decoration: none;" data-en="Read More" data-hi="और पढ़ें">Read More &rarr;</a>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card" style="display: flex; flex-direction: column;">
                         <div class="card-icon">💆‍♀️</div>
                         <h3 data-en="Hair Treatments" data-hi="बालों के उपचार">Hair Treatments</h3>
-                        <div class="card-list-wrapper">
-                            <ul>
-                                <li data-en="Scalp & Beard Hair Loss" data-hi="सिर और दाढ़ी के बालों का झड़ना">Scalp & Beard Hair Loss</li>
-                                <li data-en="Dandruff Solutions" data-hi="डैंड्रफ का समाधान">Dandruff Solutions</li>
-                                <li data-en="Premature Greying" data-hi="समय से पहले सफेद होना">Premature Greying</li>
-                                <li data-en="PRP Therapy" data-hi="पीआरपी थेरेपी">PRP Therapy</li>
-                                <li data-en="Hair Fall & Thinning" data-hi="बालों का झड़ना और पतला होना">Hair Fall & Thinning</li>
-                            </ul>
-                        </div>
+                        <p style="flex-grow: 1; font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px; line-height: 1.6;" data-en="Comprehensive solutions for hair fall, dandruff, and premature greying. Offering advanced treatments like PRP therapy to stimulate hair growth and maintain a healthy scalp." data-hi="बालों के झड़ने, डैंड्रफ और समय से पहले सफेद होने के लिए व्यापक समाधान। बालों के विकास को प्रोत्साहित करने के लिए पीआरपी थेरेपी जैसे आधुनिक उपचार प्रदान करना।">Comprehensive solutions for hair fall, dandruff, and premature greying. Offering advanced treatments like PRP therapy to stimulate hair growth and maintain a healthy scalp.</p>
+                        <a href="treatment-details.html#hair" class="btn outline-btn btn-sm" style="align-self: flex-start; text-decoration: none;" data-en="Read More" data-hi="और पढ़ें">Read More &rarr;</a>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card" style="display: flex; flex-direction: column;">
                         <div class="card-icon">✨</div>
                         <h3 data-en="Face & Cosmetic" data-hi="चेहरा और कॉस्मेटिक">Face & Cosmetic</h3>
-                        <div class="card-list-wrapper">
-                            <ul>
-                                <li data-en="Dark Circles" data-hi="काले घेरे">Dark Circles</li>
-                                <li data-en="Unwanted Facial Hair" data-hi="चेहरे के अनचाहे बाल">Unwanted Facial Hair</li>
-                                <li data-en="Skin Glow Therapy" data-hi="स्किन ग्लो थेरेपी">Skin Glow Therapy</li>
-                                <li data-en="Anti-aging Treatments" data-hi="एंटी-एजिंग उपचार">Anti-aging Treatments</li>
-                                <li data-en="Freckles & Sun Spots" data-hi="झाइयां और सन स्पॉट्स">Freckles & Sun Spots</li>
-                            </ul>
-                        </div>
+                        <p style="flex-grow: 1; font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px; line-height: 1.6;" data-en="Enhance your natural beauty with our advanced cosmetic procedures. We offer personalized treatments for dark circles, anti-aging, unwanted facial hair, and overall skin glow." data-hi="हमारी आधुनिक कॉस्मेटिक प्रक्रियाओं के साथ अपनी प्राकृतिक सुंदरता को बढ़ाएं। हम डार्क सर्कल्स, एंटी-एजिंग और चेहरे के अनचाहे बालों के लिए व्यक्तिगत उपचार प्रदान करते हैं।">Enhance your natural beauty with our advanced cosmetic procedures. We offer personalized treatments for dark circles, anti-aging, unwanted facial hair, and overall skin glow.</p>
+                        <a href="treatment-details.html#cosmetic" class="btn outline-btn btn-sm" style="align-self: flex-start; text-decoration: none;" data-en="Read More" data-hi="और पढ़ें">Read More &rarr;</a>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card" style="display: flex; flex-direction: column;">
                         <div class="card-icon">💅</div>
                         <h3 data-en="Nail & Specialty" data-hi="नाखून और विशेषता">Nail & Specialty</h3>
-                        <div class="card-list-wrapper">
-                            <ul>
-                                <li data-en="Nail Loss & Infection" data-hi="नाखूनों का गिरना और संक्रमण">Nail Loss & Infection</li>
-                                <li data-en="Cracked Heels, Palms & Soles" data-hi="फटी एड़ियाँ, हथेलियाँ और तलवे">Cracked Heels, Palms & Soles</li>
-                                <li data-en="Fungal Nail Treatment" data-hi="फंगल नेल उपचार">Fungal Nail Treatment</li>
-                                <li data-en="Detailed Nail Diagnostics" data-hi="विस्तृत नाखून निदान">Detailed Nail Diagnostics</li>
-                            </ul>
-                        </div>
+                        <p style="flex-grow: 1; font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px; line-height: 1.6;" data-en="Specialized care for persistent nail infections, fungal issues, and cracked heels. Our detailed diagnostics ensure effective treatment for difficult-to-cure nail conditions." data-hi="लगातार नाखून संक्रमण, फंगल समस्याओं और फटी एड़ियों के लिए विशेष देखभाल। हमारा विस्तृत निदान मुश्किल नाखून स्थितियों के लिए प्रभावी उपचार सुनिश्चित करता है।">Specialized care for persistent nail infections, fungal issues, and cracked heels. Our detailed diagnostics ensure effective treatment for difficult-to-cure nail conditions.</p>
+                        <a href="treatment-details.html#nail" class="btn outline-btn btn-sm" style="align-self: flex-start; text-decoration: none;" data-en="Read More" data-hi="और पढ़ें">Read More &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -252,14 +228,14 @@
                                     <option value="Evening (04:00 PM - 06:00 PM)" data-en="Evening (04:00 PM - 06:00 PM)" data-hi="शाम (04:00 अपराह्न - 06:00 अपराह्न)">Evening (04:00 PM - 06:00 PM)</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn primary-btn full-width" data-en="Send Booking Request" data-hi="बुकिंग अनुरोध भेजें">Send Booking Request</button>
+                            <button type="submit" class="btn btn-red full-width" data-en="Send Booking Request" data-hi="बुकिंग अनुरोध भेजें">Send Booking Request</button>
                         </form>
 
                         <div class="booking-alt" style="margin-top: 20px;">
                             <p style="font-size: 14px; margin-bottom: 10px; color: var(--text-light);">Or call us directly:</p>
                             <div style="display: flex; flex-direction: column; gap: 12px;">
-                                <a href="tel:+918539003914" class="btn outline-btn full-width">Call: +91 85390 03914</a>
-                                <a href="tel:+917739723914" class="btn outline-btn full-width">Call: +91 77397 23914</a>
+                                <a href="tel:+918539003914" class="btn outline-red-btn full-width">Call: +91 85390 03914</a>
+                                <a href="tel:+917739723914" class="btn outline-red-btn full-width">Call: +91 77397 23914</a>
                             </div>
                         </div>
                     </div>
@@ -337,31 +313,6 @@
         </a>
     </div>
 
-    <script>
-        function applyScaling() {
-            const targetWidth = 1200;
-            const viewportWidth = window.innerWidth;
-            const scale = viewportWidth / targetWidth;
-            const wrapper = document.getElementById('scale-wrapper');
-            
-            if ('zoom' in document.body.style) {
-                document.body.style.zoom = scale;
-                document.body.style.width = targetWidth + 'px';
-                document.body.style.margin = '0 auto';
-            } else {
-                // Fallback for Firefox
-                wrapper.style.transform = `scale(${scale})`;
-                wrapper.style.transformOrigin = 'top left';
-                wrapper.style.width = `${targetWidth}px`;
-                document.body.style.height = (wrapper.offsetHeight * scale) + 'px';
-            }
-        }
-
-        window.addEventListener('resize', applyScaling);
-        window.addEventListener('load', applyScaling);
-        setTimeout(applyScaling, 50);
-        setInterval(applyScaling, 1000);
-    </script>
     <script src="script.js?v=2.2"></script>
 </body>
 </html>
